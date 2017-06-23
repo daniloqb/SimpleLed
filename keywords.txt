@@ -1,0 +1,8 @@
+
+SimpleLed	KEYWORD1
+
+brightness 	KEYWORD2
+fade		KEYWORD2
+
+
+
