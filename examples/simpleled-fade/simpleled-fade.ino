@@ -1,10 +1,10 @@
 /*
- * moodlamp-fade.ino
+ * simpleled-fade.ino
  * 
- * Created by Danilo Queiroz Barbosa, May 18, 2017.
+ * Created by Danilo Queiroz Barbosa, Jul 09, 2017.
  * Member of electronicdrops.com
  * 
- * This example shows how to use the MoodLamp library.
+ * This example shows how to use the SimpleLed library.
  * 
  * In this sketch the fade function is set.
  * 
@@ -13,33 +13,28 @@
 
 
 // class include
-#include <MoodLamp.h> 
+#include <SimpleLed.h> 
 
-
-// These are the PWM pins that  control the colors.
-const byte PIN_RED   = 3;
-const byte PIN_GREEN = 5;
-const byte PIN_BLUE  = 6;
+const int ledPin = 9;
 
 
 
-MoodLamp moodlamp(PIN_RED,PIN_GREEN,PIN_BLUE); // LAMP device. The constructor receive the pins in order RED, GREEN, BLUE.
-
+SimpleLed led(ledPin); // LED device. The constructor receive a PWM pin number.
+ 
 void setup() {
   // put your setup code here, to run once:
   
-  moodlamp.begin();    // set the pinModes
+  led.begin();    // set the pinModes
 
-  moodlamp.color(COLOR_VIOLET); // it's possible to set the color
   
-  moodlamp.fade(1);   // activate the fade function
-  moodlamp.fade_speed(60); // it's possible to set the fade color.
+  led.fade(1);   // activate the fade function
+  led.fade_speed(60); // it's possible to set the fade color.
 }
 
 void loop() {
 
   // update the lamp color.
-  moodlamp.update();
+  led.update();
     
 
 }

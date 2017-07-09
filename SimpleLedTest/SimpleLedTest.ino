@@ -8,7 +8,7 @@ void setup() {
   // put your setup code here, to run once:
   led.begin();
   led.fade(1);
-  led.fade_speed(5);
+  led.fade_speed(30);
   
 
   

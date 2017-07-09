@@ -1,11 +1,11 @@
 /*
- * moodlamp-luminosity.ino
+ * simpleled-luminosity.ino
  * 
- * Created by Danilo Queiroz Barbosa, May 18, 2017.
+ * Created by Danilo Queiroz Barbosa, Jul 09, 2017.
  * Member of electronicdrops.com
  * 
  * 
- * This example shows how to use the MoodLamp library.
+ * This example shows how to use the Simple library.
  * 
  * ldr with a 4.7k
  * Using map function to set the correct value 
@@ -21,25 +21,19 @@
 
 
 // class include
-#include <MoodLamp.h> 
+#include <SimpleLed.h> 
 
 
-// These are the PWM pins that  control the colors.
-const byte PIN_RED   = 3;
-const byte PIN_GREEN = 5;
-const byte PIN_BLUE  = 6;
-
-
+int ledPin = 9;
 int ldrPin = A0;
 
 
-MoodLamp moodlamp(PIN_RED,PIN_GREEN,PIN_BLUE); // LAMP device. The constructor receive the pins in order RED, GREEN, BLUE.
+SimpleLed led(ledPin); // LED device. The constructor receive a PWM pin number.
 
 void setup() {
   // put your setup code here, to run once:
   
-  moodlamp.begin();    // set the pinModes
-  moodlamp.color(COLOR_AQUA);
+  led.begin();    // set the pinModes
   Serial.begin(9600);
 }
 
@@ -55,9 +49,9 @@ void loop() {
 
 Serial.println(bright);
 Serial.println();
-  moodlamp.brightness(bright);
+  led.brightness(bright);
   // update the lamp color.
-  moodlamp.update();
+  led.update();
     
 
 delay(100);

@@ -1,10 +1,10 @@
 /*
- * moodlamp-ultrasonic.ino
+ * simpleled-ultrasonic.ino
  * 
- * Created by Danilo Queiroz Barbosa, May 18, 2017.
+ * Created by Danilo Queiroz Barbosa, JUl 09, 2017.
  * Member of electronicdrops.com
  * 
- * This example shows how to use the MoodLamp library.
+ * This example shows how to use the SimpleLed library.
  * 
  * This sketch uses an ultrasonic sensor.
  * 
@@ -16,7 +16,7 @@
 
 
 // class include
-#include <MoodLamp.h> 
+#include <SimpleLed.h> 
 
 
 #include <NewPing.h>
@@ -32,18 +32,14 @@ NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and
 
 
 // These are the PWM pins that  control the colors.
-const byte PIN_RED   = 3;
-const byte PIN_GREEN = 5;
-const byte PIN_BLUE  = 6;
+const int ledPin = 9;
 
-
-
-MoodLamp moodlamp(PIN_RED,PIN_GREEN,PIN_BLUE); // LAMP device. The constructor receive the pins in order RED, GREEN, BLUE.
+SimpleLed led(9);
 
 void setup() {
   // put your setup code here, to run once:
   
-  moodlamp.begin();    // set the pinModes
+  led.begin();    // set the pinModes
 
 Serial.begin(9600);
 }
@@ -64,16 +60,13 @@ void loop() {
     Serial.println(cm);
 
     if(cm >= 15){
-      moodlamp.color(COLOR_GREEN); 
+      led.off();
     }
-    else if((cm < 15) and (cm > 5)){
-      moodlamp.color(COLOR_YELLOW);
-      }
-    else{
-      moodlamp.color(COLOR_RED);
+    else {
+      led.on();
     }
 
-   moodlamp.update();
+   led.update();
 
    delay(100);
 }
