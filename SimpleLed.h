@@ -25,11 +25,11 @@
  *
 */
 
-  const int MIN_FADE_SPEED = 0;
-  const int MAX_FADE_SPEED = 10000;
-  const int DEFAULT_FADE_SPEED = 200;
+  const int SL_MIN_FADE_SPEED = 0;
+  const int SL_MAX_FADE_SPEED = 10000;
+  const int SL_DEFAULT_FADE_SPEED = 200;
 
-  const int DEFAULT_BRIGHTNESS = 100;
+  const int SL_DEFAULT_BRIGHTNESS = 100;
 
 
 

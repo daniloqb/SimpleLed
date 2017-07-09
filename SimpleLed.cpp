@@ -6,7 +6,7 @@
 SimpleLed::SimpleLed(byte pin_led){
 
   _pin_led    = pin_led;
-  _brightness = DEFAULT_BRIGHTNESS;
+  _brightness = SL_DEFAULT_BRIGHTNESS;
   _last_brightness = _brightness;
 }
 
@@ -24,7 +24,7 @@ void SimpleLed::begin(){
 
 
   fade(0);
-  fade_speed(DEFAULT_FADE_SPEED);
+  fade_speed(SL_DEFAULT_FADE_SPEED);
 }
 
 
@@ -82,7 +82,7 @@ boolean SimpleLed::fade(int state){
 
 int SimpleLed::fade_speed(int speed){
 
-  if((speed < MIN_FADE_SPEED) || (speed > MAX_FADE_SPEED)){
+  if((speed < SL_MIN_FADE_SPEED) || (speed > SL_MAX_FADE_SPEED)){
     return -1;
   }
 
@@ -139,7 +139,7 @@ void SimpleLed::on(){
  if(_last_brightness > 0)
    brightness(_last_brightness);
 else
-   brightness(DEFAULT_BRIGHTNESS);
+   brightness(SL_DEFAULT_BRIGHTNESS);
 }
 
 void SimpleLed::off(){
